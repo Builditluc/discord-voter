@@ -1,10 +1,10 @@
-use std::env;
 use dotenv::dotenv;
-
 use serenity::{
     model::{channel::Message, gateway::Ready},
     prelude::*,
 };
+use std::env;
+mod eventhandler;
 
 #[tokio::main]
 async fn main() {
@@ -12,7 +12,10 @@ async fn main() {
 
     let token = env::var("DISCORD_TOKEN").expect("Expected a token in the environment");
 
-    let mut client = Client::builder(&token).await.expect("Err creating client");
+    let mut client = Client::builder(&token)
+        .event_handler(eventhandler::Handler)
+        .await
+        .expect("Err creating client");
 
     if let Err(why) = client.start().await {
         println!("Client error: {:?}", why);
