@@ -4,6 +4,10 @@ version = "0.1.0"
 authors = ["Builditluc <37375448+Builditluc@users.noreply.github.com>"]
 edition = "2018"
 
+[[bin]]
+name = "discord_voter"
+path = "src/main.rs"
+
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
