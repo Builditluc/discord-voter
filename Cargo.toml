@@ -24,6 +24,7 @@ features = [
     "model",
     "utils",
     "rustls_backend",
+    "standard_framework",
     "framework",
 ]
 version = "0.10.9"
